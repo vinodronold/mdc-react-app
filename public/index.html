@@ -20,15 +20,43 @@
 </head>
 
 <body class="mdc-typography">
-  <div id="layout"></div>
-  <main class="mdc-toolbar-fixed-adjust">
-    <div class="mdc-layout-grid">
-      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
-        <div class="cell-placeholder">
-          <h1 class="mdc-typography--display1">Hello</h1>
-        </div>
+  <aside class="mdc-temporary-drawer">
+    <nav class="mdc-temporary-drawer__drawer">
+      <div class="mdc-temporary-drawer__toolbar-spacer">
+        <img class="drawer-brand" src="http://placehold.it/240x64?text=Brand" alt="Brand" />
       </div>
-    </div>
+      <nav class="mdc-temporary-drawer__content mdc-list-group">
+        <div class="mdc-list">
+          <a class="mdc-list-item mdc-temporary-drawer--selected" href="#">
+            <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">email</i> All Mail
+          </a>
+          <a class="mdc-list-item" href="#">
+            <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">delete</i> Trash
+          </a>
+          <a class="mdc-list-item" href="#">
+            <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">report</i> Spam
+          </a>
+          <hr class="mdc-list-divider" />
+          <a class="mdc-list-item" href="#">
+            <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">favorite</i> Favorites
+          </a>
+        </div>
+      </nav>
+    </nav>
+  </aside>
+  <nav class="mdc-toolbar mdc-toolbar--fixed mdc-elevation--z0">
+    <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
+      <a class="material-icons menu-trigger">menu</a>
+      <span class="mdc-toolbar__title">Inbox</span>
+    </section>
+    <section class="mdc-toolbar__section mdc-toolbar__section--align-end">
+      <a class="material-icons mdc-theme--text-primary-on-primary">search</a>
+      <a class="material-icons mdc-theme--text-primary-on-primary">favorite</a>
+      <a class="material-icons mdc-theme--text-primary-on-primary">more_vert</a>
+    </section>
+  </nav>
+  <main class="mdc-toolbar-fixed-adjust">
+    <div id="app"></div>
   </main>
   <!--
       This HTML file is a template.
