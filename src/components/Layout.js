@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { MDCTemporaryDrawer } from '@material/drawer/dist/mdc.drawer';
 
-class App extends Component {
+class Layout extends Component {
   state = {
     toolbarElevated: false,
     permanentDrawer: false,
@@ -36,10 +36,10 @@ class App extends Component {
 
   onResize = () => {
     if (window.matchMedia('(min-width: 1024px)').matches) {
-      this.setState({ permanentDrawer: true });
+      this.setState({ permanentDrawer: true, permanentDrawerHidden: false });
       this.mdcDrawer = null;
     } else {
-      this.setState({ permanentDrawer: false });
+      this.setState({ permanentDrawer: false, permanentDrawerHidden: true });
       this.mdcDrawer = new MDCTemporaryDrawer(this._drawer);
     }
   };
@@ -131,54 +131,39 @@ class App extends Component {
     } = this.state;
     const permanentDrawerVisible = permanentDrawer && !permanentDrawerHidden;
     return (
-      <div className="layout-container mdc-typography">
+      <div>
         {this.renderDrawer()}
-        <div className="layout-content">
-          <nav
-            className={
-              `mdc-toolbar mdc-toolbar--fixed ${!toolbarElevated ? 'mdc-elevation--z0' : ''} ${permanentDrawerVisible ? 'mdc-permanent-drawer-adjust' : ''}`
-            }
+        <nav
+          className={
+            `mdc-toolbar mdc-toolbar--fixed ${!toolbarElevated ? 'mdc-elevation--z0' : ''} ${permanentDrawerVisible ? 'mdc-permanent-drawer-adjust' : ''}`
+          }
+        >
+          <section
+            className="mdc-toolbar__section mdc-toolbar__section--align-start"
           >
-            <section
-              className="mdc-toolbar__section mdc-toolbar__section--align-start"
-            >
-              <a className="material-icons" onClick={this.toggleDrawer}>menu</a>
-              <span className="mdc-toolbar__title">Inbox</span>
-            </section>
-            <section
-              className="mdc-toolbar__section mdc-toolbar__section--align-end"
-            >
-              <a className="material-icons mdc-theme--text-primary-on-primary">
-                search
-              </a>
-              <a className="material-icons mdc-theme--text-primary-on-primary">
-                favorite
-              </a>
-              <a className="material-icons mdc-theme--text-primary-on-primary">
-                more_vert
-              </a>
-              <a className="material-icons mdc-theme--text-primary-on-primary">
-                account_circle
-              </a>
-            </section>
-          </nav>
-          <main
-            className={
-              `mdc-toolbar-fixed-adjust ${permanentDrawerVisible ? 'mdc-permanent-drawer-adjust' : ''}`
-            }
+            <a className="material-icons" onClick={this.toggleDrawer}>menu</a>
+            <span className="mdc-toolbar__title">Inbox</span>
+          </section>
+          <section
+            className="mdc-toolbar__section mdc-toolbar__section--align-end"
           >
-            <div className="mdc-layout-grid">
-              <div
-                className="mdc-layout-grid__cell mdc-layout-grid__cell--span-6"
-              >
-                <div className="cell-placeholder" />
-              </div>
-            </div>
-          </main>
-        </div>
+            <a className="material-icons mdc-theme--text-primary-on-primary">
+              search
+            </a>
+            <a className="material-icons mdc-theme--text-primary-on-primary">
+              favorite
+            </a>
+            <a className="material-icons mdc-theme--text-primary-on-primary">
+              more_vert
+            </a>
+            <a className="material-icons mdc-theme--text-primary-on-primary">
+              account_circle
+            </a>
+          </section>
+        </nav>
       </div>
     );
   }
 }
 
-export default App;
+export default Layout;
