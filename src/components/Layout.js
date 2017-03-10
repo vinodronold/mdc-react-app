@@ -1,7 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { MDCTemporaryDrawer } from '@material/drawer/dist/mdc.drawer';
 
 class Layout extends Component {
+  static propTypes = {
+    children: PropTypes.node
+  };
+
   state = {
     toolbarElevated: false,
     permanentDrawer: false,
@@ -63,7 +67,9 @@ class Layout extends Component {
     return (
       <aside
         className={
-          `${baseClass} ${permanentDrawerHidden ? 'mdc-permanent-drawer--hidden' : ''}`
+          `${baseClass} ${permanentDrawerHidden
+            ? 'mdc-permanent-drawer--hidden'
+            : ''}`
         }
         ref={el => this._drawer = el}
       >
@@ -135,14 +141,18 @@ class Layout extends Component {
         {this.renderDrawer()}
         <nav
           className={
-            `mdc-toolbar mdc-toolbar--fixed ${!toolbarElevated ? 'mdc-elevation--z0' : ''} ${permanentDrawerVisible ? 'mdc-permanent-drawer-adjust' : ''}`
+            `mdc-toolbar mdc-toolbar--fixed ${!toolbarElevated
+              ? 'mdc-elevation--z0'
+              : ''} ${permanentDrawerVisible
+              ? 'mdc-permanent-drawer-adjust'
+              : ''}`
           }
         >
           <section
             className="mdc-toolbar__section mdc-toolbar__section--align-start"
           >
             <a className="material-icons" onClick={this.toggleDrawer}>menu</a>
-            <span className="mdc-toolbar__title">Inbox</span>
+            <span className="mdc-toolbar__title">Title</span>
           </section>
           <section
             className="mdc-toolbar__section mdc-toolbar__section--align-end"
@@ -156,11 +166,17 @@ class Layout extends Component {
             <a className="material-icons mdc-theme--text-primary-on-primary">
               more_vert
             </a>
-            <a className="material-icons mdc-theme--text-primary-on-primary">
-              account_circle
-            </a>
           </section>
         </nav>
+        <main
+          className={
+            `mdc-toolbar-fixed-adjust ${permanentDrawerVisible
+              ? 'mdc-permanent-drawer-adjust'
+              : ''}`
+          }
+        >
+          {this.props.children}
+        </main>
       </div>
     );
   }

@@ -1,11 +1,15 @@
+/**
+ * Initialize MDC Components with vanilla JS
+ */
 import { MDCTemporaryDrawer } from '@material/drawer/dist/mdc.drawer';
+import { MDCSimpleMenu } from '@material/menu/dist/mdc.menu';
 
 let tempDrawer = null;
 
-export default function setupLayout() {
+function initLayout() {
   onResize();
 
-  document.querySelector('.menu-trigger').addEventListener('click', function() {
+  document.querySelector('.toggle-drawer').addEventListener('click', () => {
     if (tempDrawer) {
       tempDrawer.open = true;
     } else {
@@ -27,15 +31,15 @@ export default function setupLayout() {
 function onResize() {
   if (window.matchMedia('(min-width: 1024px)').matches) {
     // Replace temporary drawer with permanent drawer on large screen
-    const drawerEls = document.querySelectorAll(
+    const drawerNodes = document.querySelectorAll(
       '[class*="mdc-temporary-drawer"]'
     );
-    drawerEls.forEach(el => {
-      const classNameChange = el.className.replace(
+    drawerNodes.forEach(node => {
+      const classNameChange = node.className.replace(
         /mdc-temporary-drawer/i,
         'mdc-permanent-drawer'
       );
-      el.className = classNameChange;
+      node.className = classNameChange;
     });
     document
       .querySelector('.mdc-toolbar')
@@ -43,15 +47,15 @@ function onResize() {
     document.querySelector('main').classList.add('mdc-permanent-drawer-adjust');
   } else {
     // Replace permanent drawer with temporary drawer on small screen
-    const drawerEls = document.querySelectorAll(
+    const drawerNodes = document.querySelectorAll(
       '[class*="mdc-permanent-drawer"]'
     );
-    drawerEls.forEach(el => {
-      const classNameChange = el.className.replace(
+    drawerNodes.forEach(node => {
+      const classNameChange = node.className.replace(
         /mdc-permanent-drawer/i,
         'mdc-temporary-drawer'
       );
-      el.className = classNameChange;
+      node.className = classNameChange;
     });
     document
       .querySelector('.mdc-toolbar')
@@ -68,3 +72,17 @@ function onResize() {
     tempDrawer = null;
   }
 }
+
+function initMenus() {
+  const anchors = document.querySelectorAll('.mdc-menu-anchor');
+  anchors.forEach(node => {
+    const menuNode = node.querySelector('.mdc-simple-menu');
+    const menu = new MDCSimpleMenu(menuNode);
+    const toggle = node.querySelector('.menu-toggle');
+    toggle.addEventListener('click', () => {
+      menu.open = !menu.open;
+    });
+  });
+}
+
+export { initLayout, initMenus };
