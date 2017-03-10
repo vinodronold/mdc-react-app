@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react';
+import { NavLink } from 'react-router-dom';
 import { MDCTemporaryDrawer } from '@material/drawer/dist/mdc.drawer';
+import Helmet from 'react-helmet';
 
 class Layout extends Component {
   static propTypes = {
@@ -9,7 +11,8 @@ class Layout extends Component {
   state = {
     toolbarElevated: false,
     permanentDrawer: false,
-    permanentDrawerHidden: false
+    permanentDrawerHidden: false,
+    currentTitle: ''
   };
 
   mdcDrawer = null;
@@ -63,13 +66,12 @@ class Layout extends Component {
     const baseClass = permanentDrawer
       ? 'mdc-permanent-drawer'
       : 'mdc-temporary-drawer';
+    const activeClass = `${baseClass}--selected`;
 
     return (
       <aside
         className={
-          `${baseClass} ${permanentDrawerHidden
-            ? 'mdc-permanent-drawer--hidden'
-            : ''}`
+          `${baseClass} ${permanentDrawerHidden && permanentDrawer ? 'mdc-permanent-drawer--hidden' : ''}`
         }
         ref={el => this._drawer = el}
       >
@@ -77,51 +79,63 @@ class Layout extends Component {
           className={`${permanentDrawer ? '' : 'mdc-temporary-drawer__drawer'}`}
         >
           <div className={`${baseClass}__toolbar-spacer`}>
-            <img
-              className="drawer-brand"
-              src="http://placehold.it/240x64?text=Brand"
-              alt="Brand"
-            />
+            <div className="mdc-typography--title mdc-theme--primary">
+              Brand
+            </div>
           </div>
           <nav className={`${baseClass}__content mdc-list-group`}>
             <div className="mdc-list">
-              <a className={`mdc-list-item ${baseClass}--selected`} href="#">
+              <NavLink
+                className="mdc-list-item"
+                activeClassName={activeClass}
+                exact
+                to="/"
+              >
                 <i
                   className="material-icons mdc-list-item__start-detail"
                   aria-hidden="true"
                 >
-                  email
-                </i>
-                All Mail
-              </a>
-              <a className="mdc-list-item" href="#">
+                  view_compact
+                </i>Layout Grid
+              </NavLink>
+              <NavLink
+                className="mdc-list-item"
+                activeClassName={activeClass}
+                to="/components"
+              >
                 <i
                   className="material-icons mdc-list-item__start-detail"
                   aria-hidden="true"
                 >
-                  delete
+                  layers
                 </i>
-                Trash
-              </a>
-              <a className="mdc-list-item" href="#">
+                Components
+              </NavLink>
+              <NavLink
+                className="mdc-list-item"
+                activeClassName={activeClass}
+                to="/typography"
+              >
                 <i
                   className="material-icons mdc-list-item__start-detail"
                   aria-hidden="true"
                 >
-                  report
-                </i>
-                Spam
-              </a>
-              <hr className="mdc-list-divider" />
-              <a className="mdc-list-item" href="#">
+                  text_fields
+                </i>Typography
+              </NavLink>
+              <NavLink
+                className="mdc-list-item"
+                activeClassName={activeClass}
+                to="/theme"
+              >
                 <i
                   className="material-icons mdc-list-item__start-detail"
                   aria-hidden="true"
                 >
-                  favorite
+                  color_lens
                 </i>
-                Favorites
-              </a>
+                Theme
+              </NavLink>
             </div>
           </nav>
         </nav>
@@ -138,21 +152,18 @@ class Layout extends Component {
     const permanentDrawerVisible = permanentDrawer && !permanentDrawerHidden;
     return (
       <div>
+        <Helmet defaultTitle="MDC" titleTemplate="%s - MDC" />
         {this.renderDrawer()}
         <nav
           className={
-            `mdc-toolbar mdc-toolbar--fixed ${!toolbarElevated
-              ? 'mdc-elevation--z0'
-              : ''} ${permanentDrawerVisible
-              ? 'mdc-permanent-drawer-adjust'
-              : ''}`
+            `mdc-toolbar mdc-toolbar--fixed ${!toolbarElevated ? 'mdc-elevation--z0' : ''} ${permanentDrawerVisible ? 'mdc-permanent-drawer-adjust' : ''}`
           }
         >
           <section
             className="mdc-toolbar__section mdc-toolbar__section--align-start"
           >
             <a className="material-icons" onClick={this.toggleDrawer}>menu</a>
-            <span className="mdc-toolbar__title">Title</span>
+            <span className="mdc-toolbar__title" />
           </section>
           <section
             className="mdc-toolbar__section mdc-toolbar__section--align-end"
@@ -161,21 +172,22 @@ class Layout extends Component {
               search
             </a>
             <a className="material-icons mdc-theme--text-primary-on-primary">
-              favorite
-            </a>
-            <a className="material-icons mdc-theme--text-primary-on-primary">
               more_vert
+            </a>
+            <a className="mdc-theme--text-primary-on-primary" href="#">
+              Link
+            </a>
+            <a className="mdc-theme--text-primary-on-primary" href="#">
+              Link
             </a>
           </section>
         </nav>
         <main
           className={
-            `mdc-toolbar-fixed-adjust ${permanentDrawerVisible
-              ? 'mdc-permanent-drawer-adjust'
-              : ''}`
+            `mdc-toolbar-fixed-adjust ${permanentDrawerVisible ? 'mdc-permanent-drawer-adjust' : ''}`
           }
         >
-          {this.props.children}
+          <div>{this.props.children}</div>
         </main>
       </div>
     );

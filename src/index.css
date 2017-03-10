@@ -52,11 +52,11 @@ main > div {
   padding-left: 15px;
 }
 
-.mdc-toolbar__section--align-start .material-icons {
+.mdc-toolbar__section--align-start a {
   padding-right: 15px;
 }
 
-.mdc-toolbar__section--align-end .material-icons {
+.mdc-toolbar__section--align-end a {
   padding-left: 15px;
 }
 
@@ -85,8 +85,9 @@ main > div {
 
 .cell-placeholder {
   box-sizing: border-box;
-  height: 1000px;
-  padding: 8px 16px;
+  height: 400px;
+  padding: 8px;
+  background-color: #eee;
 }
 
 /* Typography */
@@ -112,4 +113,14 @@ main > div {
 
 .mdc-typography--caption {
   letter-spacing: 0;
+}
+
+.mdc-permanent-drawer .mdc-list-item--no-detail {
+  padding-left: 24px;
+  padding-right: 24px;
+  font-weight: 700;
+}
+
+.mdc-toolbar a {
+  text-decoration: none;
 }
