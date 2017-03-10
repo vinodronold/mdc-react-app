@@ -1,12 +1,8 @@
-/**
- * Initialize MDC Components with vanilla JS
- */
 import { MDCTemporaryDrawer } from '@material/drawer/dist/mdc.drawer';
-import { MDCSimpleMenu } from '@material/menu/dist/mdc.menu';
 
 let tempDrawer = null;
 
-function initLayout() {
+export default function initLayout() {
   onResize();
 
   document.querySelector('.toggle-drawer').addEventListener('click', () => {
@@ -72,17 +68,3 @@ function onResize() {
     tempDrawer = null;
   }
 }
-
-function initMenus() {
-  const anchors = document.querySelectorAll('.mdc-menu-anchor');
-  anchors.forEach(node => {
-    const menuNode = node.querySelector('.mdc-simple-menu');
-    const menu = new MDCSimpleMenu(menuNode);
-    const toggle = node.querySelector('.menu-toggle');
-    toggle.addEventListener('click', () => {
-      menu.open = !menu.open;
-    });
-  });
-}
-
-export { initLayout, initMenus };
