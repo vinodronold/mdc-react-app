@@ -1,11 +1,11 @@
 import React from 'react';
-import Helmet from 'react-helmet';
 
 const Typography = () => (
   <div className="mdc-layout-grid">
-    <Helmet title="Typography" />
-    <div className="mdc-layout-grid__cell">
-      <h1 className="mdc-typography--display4">Display 4</h1>
+    <div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+      <h1 className="mdc-typography--display4 mdc-typography--adjust-margin">
+        Display 4
+      </h1>
       <h1 className="mdc-typography--display3">Display 3</h1>
       <h1 className="mdc-typography--display2">Display 2</h1>
       <h1 className="mdc-typography--display1">Display 1</h1>

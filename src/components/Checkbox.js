@@ -1,36 +1,40 @@
 import React, { Component, PropTypes } from 'react';
 import { MDCCheckbox } from '@material/checkbox/dist/mdc.checkbox';
+import { MDCFormField } from '@material/form-field/dist/mdc.formField';
 
 export default class Checkbox extends Component {
   static propTypes = {
     id: PropTypes.string,
     label: PropTypes.string,
     onChange: PropTypes.func,
-    checked: PropTypes.bool.isRequired,
+    checked: PropTypes.bool,
     indeterminate: PropTypes.bool,
     disabled: PropTypes.bool
   };
 
-  mdcComponent = null;
+  mdcCheckbox = null;
+  mdcFormField = null;
 
   componentDidMount() {
-    this.mdcComponent = new MDCCheckbox(this._node);
+    this.mdcCheckbox = new MDCCheckbox(this._checkbox);
+    this.mdcFormField = new MDCFormField(this._formField);
+    this.mdcFormField.input = this.mdcCheckbox;
     if (this.props.indeterminate) {
-      this.mdcComponent.indeterminate = true;
+      this.mdcCheckbox.indeterminate = true;
     }
     if (this.props.disabled) {
-      this.mdcComponent.disabled = true;
+      this.mdcCheckbox.disabled = true;
     }
   }
 
   componentWillUnmount() {
-    this.mdcComponent.destroy();
+    this.mdcCheckbox.destroy();
   }
 
   render() {
     return (
-      <div className="mdc-form-field">
-        <div className="mdc-checkbox" ref={n => this._node = n}>
+      <div className="mdc-form-field" ref={n => this._formField = n}>
+        <div className="mdc-checkbox" ref={n => this._checkbox = n}>
           <input
             type="checkbox"
             id={this.props.id}
