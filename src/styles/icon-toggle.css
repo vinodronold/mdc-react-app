@@ -1,0 +1,7 @@
+.mdc-icon-toggle:not(.mdc-ripple-upgraded)::before, 
+.mdc-icon-toggle:not(.mdc-ripple-upgraded)::after {
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+}

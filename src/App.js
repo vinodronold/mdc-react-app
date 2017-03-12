@@ -6,6 +6,7 @@ import DrawerLink from './components/DrawerLink';
 import TemporaryDrawer from './components/TemporaryDrawer';
 import PermanentDrawer from './components/PermanentDrawer';
 import Toolbar from './components/Toolbar';
+import './styles/drawer.css';
 
 export default class App extends Component {
   state = {
@@ -55,15 +56,22 @@ export default class App extends Component {
         <DrawerLink
           activeClassName={activeClass}
           to="/"
-          icon="view_compact"
-          text="Layout Grid"
+          icon="brightness_1"
+          text="Buttons"
           closeDrawer={closeDrawer}
         />
         <DrawerLink
           activeClassName={activeClass}
-          to="/components"
-          icon="layers"
-          text="Components"
+          to="/toggles"
+          icon="radio_button_checked"
+          text="Toggles"
+          closeDrawer={closeDrawer}
+        />
+        <DrawerLink
+          activeClassName={activeClass}
+          to="/textfields"
+          icon="text_format"
+          text="Text Fields"
           closeDrawer={closeDrawer}
         />
         <DrawerLink
@@ -76,7 +84,7 @@ export default class App extends Component {
         <DrawerLink
           activeClassName={activeClass}
           to="/theme"
-          icon="color_lens"
+          icon="invert_colors"
           text="Theme"
           closeDrawer={closeDrawer}
         />
@@ -110,7 +118,7 @@ export default class App extends Component {
               </PermanentDrawer>
             : <TemporaryDrawer
                 className="nav-drawer"
-                open={temporaryDrawerOpen}
+                isOpen={temporaryDrawerOpen}
                 close={this.toggleDrawer}
                 toolbarSpacer={
                   <div className="mdc-typography--title mdc-theme--primary">

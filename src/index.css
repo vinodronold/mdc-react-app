@@ -2,97 +2,12 @@ body {
   margin: 0;
 }
 
+p {
+  line-height: 24px;
+}
+
 main > div {
   padding: 30px;
-}
-
-.mdc-permanent-drawer {
-  position: fixed;
-  top: 0;
-  z-index: 2;
-  overflow-y: auto;
-  visibility: visible;
-  transform: translateX(0) translateZ(2);
-  -webkit-transition: -webkit-transform 0.13s 0ms cubic-bezier(0, 0, 0.2, 1);
-  transition: -webkit-transform 0.13s 0ms cubic-bezier(0, 0, 0.2, 1);
-  transition: transform 0.13s 0ms cubic-bezier(0, 0, 0.2, 1);
-  transition: transform 0.13s 0ms cubic-bezier(0, 0, 0.2, 1), -webkit-transform 0.13s 0ms cubic-bezier(0, 0, 0.2, 1);
-}
-
-.nav-drawer a {
-  cursor: pointer;
-}
-
-.nav-drawer .mdc-list-item.mdc-ripple-upgraded {
-  left: 0;
-}
-
-.nav-drawer .mdc-list-item.mdc-ripple-upgraded::before,
-.nav-drawer .mdc-list-item.mdc-ripple-upgraded::after {
-  background-color: rgba(63, 81, 181, 0.16);
-}
-
-.mdc-permanent-drawer--hidden {
-  transform: translateX(-300px) translateZ(0);
-  visibility: hidden;
-}
-
-.mdc-permanent-drawer-adjust {
-  padding-left: 240px;
-}
-
-.drawer-brand {
-  max-width: 185px;
-}
-
-.material-icons {
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.mdc-toolbar .material-icons {
-  vertical-align: middle;
-}
-
-.mdc-toolbar--fixed.mdc-elevation--z0 {
-  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
-}
-
-.mdc-toolbar--fixed.mdc-permanent-drawer-adjust {
-  padding-left: 266px;
-}
-
-.mdc-toolbar__title {
-  padding-left: 15px;
-}
-
-.mdc-toolbar a {
-  padding-top: 12px;
-  padding-bottom: 12px;
-}
-
-.mdc-toolbar .mdc-button {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.mdc-toolbar__section--align-start a {
-  margin-right: 15px;
-}
-
-.mdc-toolbar__section--align-end a {
-  margin-left: 15px;
-}
-
-@media (min-width: 1024px) {
-  .mdc-toolbar {
-    padding-left: 26px;
-    padding-right: 26px;
-  }
-}
-
-.mdc-list-item {
-  letter-spacing: normal !important;
 }
 
 .mdc-form-field {
@@ -103,18 +18,14 @@ main > div {
   letter-spacing: normal;
 }
 
-.text-right {
-  text-align: right;
+.mdc-textfield__input {
+  font-family: Roboto, sans-serif;
 }
 
-.cell-placeholder {
-  box-sizing: border-box;
-  height: 400px;
-  padding: 8px;
-  background-color: #eee;
+.mdc-list-item {
+  letter-spacing: normal !important;
 }
 
-/* Typography */
 .mdc-typography--title {
   letter-spacing: 0;
 }
@@ -137,14 +48,4 @@ main > div {
 
 .mdc-typography--caption {
   letter-spacing: 0;
-}
-
-.mdc-permanent-drawer .mdc-list-item--no-detail {
-  padding-left: 24px;
-  padding-right: 24px;
-  font-weight: 700;
-}
-
-.mdc-toolbar a {
-  text-decoration: none;
 }

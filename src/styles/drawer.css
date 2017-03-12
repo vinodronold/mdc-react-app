@@ -1,0 +1,45 @@
+.mdc-permanent-drawer {
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  overflow-y: auto;
+  visibility: visible;
+  transform: translateX(0) translateZ(2);
+  -webkit-transition: -webkit-transform 0.13s 0ms cubic-bezier(0, 0, 0.2, 1);
+  transition: -webkit-transform 0.13s 0ms cubic-bezier(0, 0, 0.2, 1);
+  transition: transform 0.13s 0ms cubic-bezier(0, 0, 0.2, 1);
+  transition: transform 0.13s 0ms cubic-bezier(0, 0, 0.2, 1), -webkit-transform 0.13s 0ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.mdc-permanent-drawer--hidden {
+  transform: translateX(-300px) translateZ(0);
+  visibility: hidden;
+}
+
+.mdc-permanent-drawer-adjust {
+  padding-left: 240px;
+}
+
+.mdc-permanent-drawer .mdc-list-item--no-detail {
+  padding-left: 24px;
+  padding-right: 24px;
+  font-weight: 700;
+}
+
+.nav-drawer a {
+  cursor: pointer;
+}
+
+.nav-drawer .mdc-list-item.mdc-ripple-upgraded {
+  left: 0;
+}
+
+.nav-drawer .mdc-list-item.mdc-ripple-upgraded::before,
+.nav-drawer .mdc-list-item.mdc-ripple-upgraded::after {
+  background-color: rgba(63, 81, 181, 0.16);
+}
+
+.drawer-brand {
+  max-width: 185px;
+}
+

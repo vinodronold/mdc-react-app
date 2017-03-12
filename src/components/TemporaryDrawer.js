@@ -11,8 +11,8 @@ const {
 class TemporaryDrawer extends PureComponent {
   static propTypes = {
     className: PropTypes.string,
-    open: PropTypes.bool,
-    close: PropTypes.func.isRequired,
+    isOpen: PropTypes.bool,
+    close: PropTypes.func,
     toolbarSpacer: PropTypes.node,
     header: PropTypes.node,
     children: PropTypes.node
@@ -102,10 +102,15 @@ class TemporaryDrawer extends PureComponent {
 
   componentDidMount() {
     this.foundation.init();
+    if (this.props.className) {
+      this.setState(prevState => ({
+        classes: prevState.classes.add(this.props.className)
+      }));
+    }
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.open) {
+    if (nextProps.isOpen) {
       this.foundation.open();
     } else {
       this.foundation.close();
@@ -116,19 +121,29 @@ class TemporaryDrawer extends PureComponent {
     this.foundation.destroy();
   }
 
+  handleRootClick = () => {
+    if (this.props.close) {
+      this.props.close();
+    }
+  };
+
+  handleDrawerClick = evt => {
+    evt.stopPropagation();
+  };
+
   render() {
-    const { className, toolbarSpacer, header, children, close } = this.props;
+    const { toolbarSpacer, header, children } = this.props;
     const { classes } = this.state;
     return (
       <aside
-        className={`${classes.toJS().join(' ')} ${className}`}
+        className={classes.toJS().join(' ')}
         ref={n => this._root = n}
-        onClick={close}
+        onClick={this.handleRootClick}
       >
         <nav
           className="mdc-temporary-drawer__drawer"
           ref={n => this._drawer = n}
-          onClick={evt => evt.stopPropagation()}
+          onClick={this.handleDrawerClick}
         >
           {toolbarSpacer
             ? <div className="mdc-temporary-drawer__toolbar-spacer">

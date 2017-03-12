@@ -1,27 +1,27 @@
 import React, { Component, PropTypes } from 'react';
 import { MDCTextfield } from '@material/textfield/dist/mdc.textfield';
 
-export default class Textfield extends Component {
+class Textfield extends Component {
   static propTypes = {
     label: PropTypes.string.isRequired,
     value: PropTypes.string,
     onChange: PropTypes.func
   };
 
-  mdcComponent = null;
+  mdcTextfield = null;
 
   componentDidMount() {
-    this.mdcComponent = new MDCTextfield(this._node);
+    this.mdcTextfield = new MDCTextfield(this._textfield);
   }
 
   componentWillUnmount() {
-    this.mdcComponent.destroy();
+    this.mdcTextfield.destroy();
   }
 
   render() {
     const { label, value, onChange } = this.props;
     return (
-      <div className="mdc-textfield" ref={n => this._node = n}>
+      <div className="mdc-textfield" ref={n => this._textfield = n}>
         <input
           type="text"
           className="mdc-textfield__input"
@@ -35,3 +35,5 @@ export default class Textfield extends Component {
     );
   }
 }
+
+export default Textfield;

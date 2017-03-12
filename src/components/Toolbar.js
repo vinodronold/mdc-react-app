@@ -2,8 +2,9 @@ import React, { Component, PropTypes } from 'react';
 import { Route } from 'react-router-dom';
 import routes from '../routeConfig';
 import IconToggle from './IconToggle';
+import '../styles/toolbar.css';
 
-export default class Toolbar extends Component {
+class Toolbar extends Component {
   static propTypes = {
     permanentDrawerAdjust: PropTypes.bool,
     toggleDrawer: PropTypes.func
@@ -32,12 +33,13 @@ export default class Toolbar extends Component {
   render() {
     const { elevated } = this.state;
     const { permanentDrawerAdjust, toggleDrawer } = this.props;
+    let className = 'mdc-toolbar mdc-toolbar--fixed mdc-theme--dark';
+
+    if (!elevated) className += ' mdc-elevation--z0';
+    if (permanentDrawerAdjust) className += ' mdc-permanent-drawer-adjust';
+
     return (
-      <nav
-        className={
-          `mdc-toolbar mdc-toolbar--fixed ${!elevated ? 'mdc-elevation--z0' : ''} ${permanentDrawerAdjust ? 'mdc-permanent-drawer-adjust' : ''} mdc-theme--dark`
-        }
-      >
+      <nav className={className}>
         <section
           className="mdc-toolbar__section mdc-toolbar__section--align-start"
         >
@@ -57,11 +59,17 @@ export default class Toolbar extends Component {
           className="mdc-toolbar__section mdc-toolbar__section--align-end"
         >
           <IconToggle icon="search" />
+          <IconToggle icon="more_vert" />
           <a className="mdc-button" href="#">
-            Log in
+            Link
+          </a>
+          <a className="mdc-button" href="#">
+            Link
           </a>
         </section>
       </nav>
     );
   }
 }
+
+export default Toolbar;

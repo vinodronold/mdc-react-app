@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 
-export default class PermanentDrawer extends React.Component {
+class PermanentDrawer extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node,
+    toolbarSpacer: PropTypes.node,
+    hidden: PropTypes.bool
+  };
+
   render() {
-    const { className, toolbarSpacer, children, hidden } = this.props;
+    const { toolbarSpacer, children, hidden } = this.props;
+    let className = 'mdc-permanent-drawer';
+
+    if (hidden) className += ' mdc-permanent-drawer--hidden';
+    if (this.props.className) className += ` ${this.props.className}`;
+
     return (
-      <nav
-        className={
-          `mdc-permanent-drawer ${hidden ? 'mdc-permanent-drawer--hidden' : ''} ${className}`
-        }
-      >
+      <nav className={className}>
         {toolbarSpacer
           ? <div className="mdc-permanent-drawer__toolbar-spacer">
               {toolbarSpacer}
@@ -21,3 +29,5 @@ export default class PermanentDrawer extends React.Component {
     );
   }
 }
+
+export default PermanentDrawer;

@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { MDCIconToggle } from '@material/icon-toggle/dist/mdc.iconToggle';
+import '../styles/icon-toggle.css';
 
 class IconToggle extends Component {
   static propTypes = {

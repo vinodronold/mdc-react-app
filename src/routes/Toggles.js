@@ -1,14 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Checkbox from '../components/Checkbox';
-import TextField from '../components/Textfield';
 
-class Components extends React.Component {
+class Toggles extends Component {
   state = {
     checkboxChecked: false
   };
 
-  onCheckboxChange = event => {
-    this.setState({ checkboxChecked: event.target.checked });
+  onCheckboxChange = evt => {
+    this.setState({ checkboxChecked: evt.target.checked });
   };
 
   render() {
@@ -21,10 +20,10 @@ class Components extends React.Component {
           checked={this.state.checkboxChecked}
         />
         <br />
-        <TextField label="Text field" />
+
       </div>
     );
   }
 }
 
-export default Components;
+export default Toggles;
