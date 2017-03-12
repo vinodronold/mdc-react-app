@@ -9,3 +9,11 @@
 .mdc-icon-toggle:focus::before {
   opacity: 0 !important;
 }
+
+.toggles-row {
+  margin-bottom: 30px;
+}
+
+.toggles-row .mdc-form-field {
+  margin-right: 30px;
+}

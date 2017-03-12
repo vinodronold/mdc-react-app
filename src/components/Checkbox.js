@@ -41,6 +41,7 @@ export default class Checkbox extends Component {
             className="mdc-checkbox__native-control"
             onChange={this.props.onChange}
             checked={this.props.checked}
+            disabled={this.props.disabled}
           />
           <div className="mdc-checkbox__background">
             <svg

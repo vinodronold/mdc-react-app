@@ -3,7 +3,6 @@ import { Route } from 'react-router-dom';
 import routes from './routeConfig';
 import IconToggle from './components/IconToggle';
 import Button from './components/Button';
-import './styles/toolbar.css';
 
 class Toolbar extends Component {
   static propTypes = {

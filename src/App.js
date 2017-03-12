@@ -6,7 +6,6 @@ import TemporaryDrawer from './components/TemporaryDrawer';
 import PermanentDrawer from './components/PermanentDrawer';
 import Toolbar from './Toolbar';
 import SideNav from './SideNav';
-import './styles/drawer.css';
 
 class App extends Component {
   state = {

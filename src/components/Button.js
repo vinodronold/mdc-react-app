@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { withRouter } from 'react-router-dom';
 import { MDCRipple } from '@material/ripple/dist/mdc.ripple';
-import '../styles/buttons.css';
 
 class Button extends Component {
   static propTypes = {
