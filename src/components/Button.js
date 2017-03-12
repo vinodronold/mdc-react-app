@@ -28,15 +28,11 @@ class Button extends Component {
   ripple = null;
 
   componentDidMount() {
-    if (this._button) {
-      this.ripple = new MDCRipple(this._button);
-    }
+    this.ripple = new MDCRipple(this._button);
   }
 
   componentWillUnmount() {
-    if (this.ripple) {
-      this.ripple.destroy();
-    }
+    this.ripple.destroy();
   }
 
   routeTo = () => {
