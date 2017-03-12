@@ -8,7 +8,7 @@ import PermanentDrawer from './components/PermanentDrawer';
 import Toolbar from './Toolbar';
 import './styles/drawer.css';
 
-export default class App extends Component {
+class App extends Component {
   state = {
     temporaryDrawerOpen: false,
     hasPermanentDrawer: false,
@@ -154,3 +154,5 @@ export default class App extends Component {
     );
   }
 }
+
+export default App;
