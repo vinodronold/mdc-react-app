@@ -33,7 +33,7 @@ class Button extends Component {
     }
   }
 
-  navigate = () => {
+  routeTo = () => {
     const { history, to } = this.props;
     history.push(to);
   };
@@ -60,7 +60,7 @@ class Button extends Component {
       return (
         <a
           className={classes}
-          onClick={this.navigate}
+          onClick={this.routeTo}
           ref={n => this._button = n}
           {...otherProps}
         >
