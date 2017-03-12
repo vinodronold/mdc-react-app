@@ -1,1 +1,1 @@
-Example [Material Design Components](https://github.com/material-components/material-components-web) integrations with React.
+Example integrations of [Material Design Components](https://github.com/material-components/material-components-web) with React.
