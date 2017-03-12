@@ -15,7 +15,7 @@ class SideNav extends Component {
       ? this.props.toggleDrawer
       : null;
     return (
-      <div className="mdc-list">
+      <div className="side-nav mdc-list">
         <DrawerLink
           activeClassName={activeClass}
           to="/"

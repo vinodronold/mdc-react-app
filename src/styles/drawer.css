@@ -26,16 +26,16 @@
   font-weight: 700;
 }
 
-.nav-drawer a {
+.side-nav a {
   cursor: pointer;
 }
 
-.nav-drawer .mdc-list-item.mdc-ripple-upgraded {
+.side-nav .mdc-list-item.mdc-ripple-upgraded {
   left: 0;
 }
 
-.nav-drawer .mdc-list-item.mdc-ripple-upgraded::before,
-.nav-drawer .mdc-list-item.mdc-ripple-upgraded::after {
+.side-nav .mdc-list-item.mdc-ripple-upgraded::before,
+.side-nav .mdc-list-item.mdc-ripple-upgraded::after {
   background-color: rgba(63, 81, 181, 0.16);
 }
 

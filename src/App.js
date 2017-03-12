@@ -59,7 +59,6 @@ class App extends Component {
           <Helmet defaultTitle="MDC" titleTemplate="%s - MDC" />
           {hasPermanentDrawer
             ? <PermanentDrawer
-                className="nav-drawer"
                 hidden={permanentDrawerHidden}
                 toolbarSpacer={
                   <div className="mdc-typography--title mdc-theme--primary">
@@ -73,7 +72,6 @@ class App extends Component {
                 />
               </PermanentDrawer>
             : <TemporaryDrawer
-                className="nav-drawer"
                 isOpen={temporaryDrawerOpen}
                 close={this.toggleDrawer}
                 toolbarSpacer={
