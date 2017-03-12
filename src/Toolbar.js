@@ -60,9 +60,9 @@ class Toolbar extends Component {
           className="mdc-toolbar__section mdc-toolbar__section--align-end"
         >
           <IconToggle icon="search" />
-          <IconToggle icon="more_vert" />
-          <Button label="Link" className="toolbar-link" />
-          <Button label="Link" className="toolbar-link" />
+          <IconToggle className="toolbar__more-menu" icon="more_vert" />
+          <Button label="Link" className="toolbar__link" />
+          <Button label="Link" className="toolbar__link" />
         </section>
       </nav>
     );

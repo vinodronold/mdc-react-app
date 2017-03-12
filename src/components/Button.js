@@ -13,7 +13,12 @@ class Button extends Component {
     staticContext: PropTypes.object,
     to: PropTypes.string,
     href: PropTypes.string,
-    label: PropTypes.string.isRequired
+    label: PropTypes.string.isRequired,
+    dense: PropTypes.bool,
+    raised: PropTypes.bool,
+    compact: PropTypes.bool,
+    primary: PropTypes.bool,
+    accent: PropTypes.bool
   };
 
   static defaultProps = {
@@ -50,12 +55,22 @@ class Button extends Component {
       match,
       staticContext,
       className,
+      dense,
+      raised,
+      compact,
+      primary,
+      accent,
       ...otherProps
     } = this.props;
 
     let classes = 'mdc-button';
 
     if (className) classes += ` ${className}`;
+    if (dense) classes += ' mdc-button--dense';
+    if (raised) classes += ' mdc-button--raised';
+    if (compact) classes += ' mdc-button--compact';
+    if (primary) classes += ' mdc-button--primary';
+    if (accent) classes += ' mdc-button--accent';
 
     if (to) {
       return (

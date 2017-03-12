@@ -4,6 +4,7 @@ import '../styles/icon-toggle.css';
 
 class IconToggle extends Component {
   static propTypes = {
+    className: PropTypes.string,
     icon: PropTypes.string,
     onClick: PropTypes.func
   };
@@ -19,10 +20,13 @@ class IconToggle extends Component {
   }
 
   render() {
+    let classes = 'mdc-icon-toggle material-icons';
+    if (this.props.className) classes += ` ${this.props.className}`;
+
     return (
       <i
         ref={n => this._iconToggle = n}
-        className="mdc-icon-toggle material-icons"
+        className={classes}
         role="button"
         aria-pressed="false"
         tabIndex="0"

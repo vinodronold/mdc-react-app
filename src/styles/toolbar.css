@@ -19,13 +19,21 @@
   text-decoration: none;
 }
 
-.toolbar-link {
+.toolbar__link {
   display: none !important;
 }
 
+.toolbar__more-menu {
+  display: block;
+}
+
 @media (min-width: 1024px) {
-  .toolbar-link {
+  .toolbar__link {
     display: inline-block !important;
+  }
+
+  .toolbar__more-menu {
+    display: none !important;
   }
 }
 

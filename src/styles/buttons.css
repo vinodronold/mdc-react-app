@@ -1,3 +1,13 @@
 .mdc-button {
   -webkit-tap-highlight-color: transparent !important;
 }
+
+.demo-button-row {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.demo-button-row .mdc-button,
+.demo-button-row .mdc-fab {
+  margin: 0px 20px 20px 0;
+}

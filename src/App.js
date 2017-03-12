@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Helmet from 'react-helmet';
 import routes from './routeConfig';
-import DrawerLink from './components/DrawerLink';
 import TemporaryDrawer from './components/TemporaryDrawer';
 import PermanentDrawer from './components/PermanentDrawer';
 import Toolbar from './Toolbar';
+import SideNav from './SideNav';
 import './styles/drawer.css';
 
 class App extends Component {
@@ -44,54 +44,6 @@ class App extends Component {
     }
   };
 
-  renderDrawerLinks() {
-    const activeClass = this.state.hasPermanentDrawer
-      ? 'mdc-permanent-drawer--selected'
-      : 'mdc-temporary-drawer--selected';
-    const closeDrawer = !this.state.hasPermanentDrawer
-      ? this.toggleDrawer
-      : null;
-    return (
-      <div className="mdc-list">
-        <DrawerLink
-          activeClassName={activeClass}
-          to="/"
-          icon="check_circle"
-          text="Buttons"
-          closeDrawer={closeDrawer}
-        />
-        <DrawerLink
-          activeClassName={activeClass}
-          to="/toggles"
-          icon="radio_button_checked"
-          text="Toggles"
-          closeDrawer={closeDrawer}
-        />
-        <DrawerLink
-          activeClassName={activeClass}
-          to="/textfields"
-          icon="text_format"
-          text="Text Fields"
-          closeDrawer={closeDrawer}
-        />
-        <DrawerLink
-          activeClassName={activeClass}
-          to="/typography"
-          icon="text_fields"
-          text="Typography"
-          closeDrawer={closeDrawer}
-        />
-        <DrawerLink
-          activeClassName={activeClass}
-          to="/theme"
-          icon="invert_colors"
-          text="Theme"
-          closeDrawer={closeDrawer}
-        />
-      </div>
-    );
-  }
-
   render() {
     const {
       hasPermanentDrawer,
@@ -99,6 +51,7 @@ class App extends Component {
       temporaryDrawerOpen
     } = this.state;
     const permanentDrawerAdjust = hasPermanentDrawer && !permanentDrawerHidden;
+    const brand = 'MDC';
 
     return (
       <Router>
@@ -110,11 +63,14 @@ class App extends Component {
                 hidden={permanentDrawerHidden}
                 toolbarSpacer={
                   <div className="mdc-typography--title mdc-theme--primary">
-                    MDC
+                    {brand}
                   </div>
                 }
               >
-                {this.renderDrawerLinks()}
+                <SideNav
+                  hasPermanentDrawer={hasPermanentDrawer}
+                  toggleDrawer={this.toggleDrawer}
+                />
               </PermanentDrawer>
             : <TemporaryDrawer
                 className="nav-drawer"
@@ -122,11 +78,14 @@ class App extends Component {
                 close={this.toggleDrawer}
                 toolbarSpacer={
                   <div className="mdc-typography--title mdc-theme--primary">
-                    Brand
+                    {brand}
                   </div>
                 }
               >
-                {this.renderDrawerLinks()}
+                <SideNav
+                  hasPermanentDrawer={hasPermanentDrawer}
+                  toggleDrawer={this.toggleDrawer}
+                />
               </TemporaryDrawer>}
 
           <Toolbar
