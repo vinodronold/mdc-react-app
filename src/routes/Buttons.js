@@ -5,7 +5,7 @@ class Buttons extends Component {
   render() {
     return (
       <div>
-        <Button text="Default" />
+        <Button label="Default" />
       </div>
     );
   }

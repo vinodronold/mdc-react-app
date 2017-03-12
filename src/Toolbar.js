@@ -61,8 +61,8 @@ class Toolbar extends Component {
         >
           <IconToggle icon="search" />
           <IconToggle icon="more_vert" />
-          <Button text="Link" className="toolbar-link" />
-          <Button text="Link" className="toolbar-link" />
+          <Button label="Link" className="toolbar-link" />
+          <Button label="Link" className="toolbar-link" />
         </section>
       </nav>
     );

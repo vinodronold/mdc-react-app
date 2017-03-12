@@ -12,7 +12,7 @@ class Button extends Component {
     staticContext: PropTypes.object,
     to: PropTypes.string,
     href: PropTypes.string,
-    text: PropTypes.string.isRequired
+    label: PropTypes.string.isRequired
   };
 
   static defaultProps = {
@@ -43,7 +43,7 @@ class Button extends Component {
       type,
       to,
       href,
-      text,
+      label,
       history,
       location,
       match,
@@ -64,7 +64,7 @@ class Button extends Component {
           ref={n => this._button = n}
           {...otherProps}
         >
-          {text}
+          {label}
         </a>
       );
     }
@@ -77,7 +77,7 @@ class Button extends Component {
           ref={n => this._button = n}
           {...otherProps}
         >
-          {text}
+          {label}
         </a>
       );
     }
@@ -89,7 +89,7 @@ class Button extends Component {
         ref={n => this._button = n}
         {...otherProps}
       >
-        {text}
+        {label}
       </button>
     );
   }
