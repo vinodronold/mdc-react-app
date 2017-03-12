@@ -8,47 +8,31 @@
 }
 
 .mdc-toolbar--fixed.mdc-permanent-drawer-adjust {
-  padding-left: 252px;
+  padding-left: 256px;
 }
 
 .mdc-toolbar__title {
-  font-weight: 400 !important;
   padding-left: 15px;
-}
-
-.mdc-toolbar a {
-  padding-top: 12px;
-  padding-bottom: 12px;
-}
-
-.mdc-toolbar .mdc-button {
-  padding-top: 0;
-  padding-bottom: 0;
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.mdc-toolbar__section--align-start a {
-  margin-right: 15px;
-}
-
-.mdc-toolbar__section--align-end a {
-  margin-left: 15px;
 }
 
 .mdc-toolbar a {
   text-decoration: none;
 }
 
+.toolbar-link {
+  display: none !important;
+}
+
 @media (min-width: 1024px) {
-  .mdc-toolbar {
-    padding-left: 26px;
-    padding-right: 26px;
+  .toolbar-link {
+    display: inline-block !important;
   }
 }
 
+/* Compact toolbar on small screen */
 @media (max-width: 599px) {
   .mdc-toolbar {
     padding-left: 8px !important;
+    padding-right: 8px !important;
   }
 }

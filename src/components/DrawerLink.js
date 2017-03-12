@@ -14,6 +14,7 @@ class DrawerLink extends Component {
   };
 
   ripple = null;
+  closeDrawerTimeout = null;
 
   componentWillReceiveProps() {
     this.ripple = new MDCRipple(this._link);
@@ -23,13 +24,18 @@ class DrawerLink extends Component {
     if (this.ripple) {
       this.ripple.destroy();
     }
+
+    if (this.closeDrawerTimeout) {
+      clearTimeout(this.closeDrawerTimeout);
+    }
   }
 
   handleClick = () => {
     const { history, to, closeDrawer } = this.props;
     history.push(to);
     if (closeDrawer) {
-      closeDrawer();
+      // give some time for ripple animation before navigating
+      this.closeDrawerTimeout = setTimeout(closeDrawer, 150);
     }
   };
 

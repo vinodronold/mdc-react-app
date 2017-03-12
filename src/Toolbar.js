@@ -1,8 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { Route } from 'react-router-dom';
-import routes from '../routeConfig';
-import IconToggle from './IconToggle';
-import '../styles/toolbar.css';
+import routes from './routeConfig';
+import IconToggle from './components/IconToggle';
+import Button from './components/Button';
+import './styles/toolbar.css';
 
 class Toolbar extends Component {
   static propTypes = {
@@ -60,12 +61,8 @@ class Toolbar extends Component {
         >
           <IconToggle icon="search" />
           <IconToggle icon="more_vert" />
-          <a className="mdc-button" href="#">
-            Link
-          </a>
-          <a className="mdc-button" href="#">
-            Link
-          </a>
+          <Button text="Link" className="toolbar-link" />
+          <Button text="Link" className="toolbar-link" />
         </section>
       </nav>
     );

@@ -5,7 +5,7 @@ import routes from './routeConfig';
 import DrawerLink from './components/DrawerLink';
 import TemporaryDrawer from './components/TemporaryDrawer';
 import PermanentDrawer from './components/PermanentDrawer';
-import Toolbar from './components/Toolbar';
+import Toolbar from './Toolbar';
 import './styles/drawer.css';
 
 export default class App extends Component {
@@ -56,7 +56,7 @@ export default class App extends Component {
         <DrawerLink
           activeClassName={activeClass}
           to="/"
-          icon="brightness_1"
+          icon="check_circle"
           text="Buttons"
           closeDrawer={closeDrawer}
         />
@@ -110,7 +110,7 @@ export default class App extends Component {
                 hidden={permanentDrawerHidden}
                 toolbarSpacer={
                   <div className="mdc-typography--title mdc-theme--primary">
-                    Brand
+                    MDC
                   </div>
                 }
               >
