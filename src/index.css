@@ -6,8 +6,14 @@ p {
   line-height: 24px;
 }
 
-main > div {
-  padding: 30px;
+.main-container {
+  padding: 15px;
+}
+
+@media (min-width: 1024px) {
+  .main-container {
+    padding: 30px;
+  }
 }
 
 .mdc-form-field {

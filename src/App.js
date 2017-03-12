@@ -138,7 +138,7 @@ class App extends Component {
               `mdc-toolbar-fixed-adjust ${permanentDrawerAdjust ? 'mdc-permanent-drawer-adjust' : ''}`
             }
           >
-            <div>
+            <div className="main-container">
               {routes.map((route, i) => (
                 <Route
                   key={i}

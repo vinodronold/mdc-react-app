@@ -5,3 +5,7 @@
   width: 100% !important;
   height: 100% !important;
 }
+
+.mdc-icon-toggle:focus::before {
+  opacity: 0 !important;
+}
