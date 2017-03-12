@@ -60,7 +60,9 @@ export default class Checkbox extends Component {
             <div className="mdc-checkbox__mixedmark" />
           </div>
         </div>
-        <label htmlFor={this.props.id}>{this.props.label}</label>
+        <label htmlFor={this.props.id}>
+          {this.props.label}
+        </label>
       </div>
     );
   }

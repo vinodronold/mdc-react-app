@@ -8,8 +8,8 @@ class Toggles extends Component {
     selectedOption: 'option1'
   };
 
-  handleCheckboxChange = evt => {
-    this.setState({ checkboxChecked: evt.target.checked });
+  toggleCheckboxChange = () => {
+    this.setState({ checkboxChecked: !this.state.checkboxChecked });
   };
 
   handleOptionChange = evt => {
@@ -24,16 +24,16 @@ class Toggles extends Component {
           <Checkbox
             label="A checkbox"
             id="a-checkbox"
-            onChange={this.handleCheckboxChange}
+            onChange={this.toggleCheckboxChange}
             checked={this.state.checkboxChecked}
           />
           <Checkbox
             label="Indeterminate"
-            onChange={this.handleCheckboxChange}
+            onChange={this.toggleCheckboxChange}
             checked={this.state.checkboxChecked}
             indeterminate
           />
-          <Checkbox label="Disabled" disabled />
+          <Checkbox label="Disabled" disabled={this.state.checkboxChecked} />
           <Checkbox label="Disabled" disabled checked />
         </div>
 
