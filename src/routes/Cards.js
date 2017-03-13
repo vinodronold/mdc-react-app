@@ -3,12 +3,6 @@ import Button from '../components/Button';
 
 const Cards = () => (
   <div>
-    <h1
-      className="mdc-typography--headline mdc-theme--primary mdc-typography--adjust-margin"
-    >
-      Cards
-    </h1>
-
     <div className="mdc-card demo-card">
       <section
         className="mdc-card__media card-media--16-9"
@@ -42,8 +36,8 @@ const Cards = () => (
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi ea natus reiciendis animi, cumque adipisci nobis earum voluptatum.
       </section>
       <section className="mdc-card__actions">
-        <Button className="mdc-card__action" label="Action 1" compact primary />
-        <Button className="mdc-card__action" label="Action 2" compact primary />
+        <Button className="mdc-card__action" label="Action 1" compact accent />
+        <Button className="mdc-card__action" label="Action 2" compact accent />
       </section>
     </div>
 
