@@ -1,0 +1,15 @@
+.textfields-row {
+  margin-bottom: 30px;
+}
+
+.textfields-row .mdc-textfield {
+  margin-right: 20px;
+}
+
+.mdc-textfield-helptext.mdc-textfield-helptext--validation-msg:not(.mdc-textfield-helptext--persistent) {
+  display: none;
+}
+
+.mdc-textfield--invalid + .mdc-textfield-helptext--validation-msg {
+  display: block !important; 
+}

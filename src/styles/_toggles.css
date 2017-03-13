@@ -10,6 +10,11 @@
   opacity: 0 !important;
 }
 
+.icon-toggle-label {
+  display: block;
+  margin-bottom: 15px;
+}
+
 .toggles-row {
   margin-bottom: 30px;
 }

@@ -1,8 +1,8 @@
 import Buttons from './routes/Buttons';
+import Cards from './routes/Cards';
 import Toggles from './routes/Toggles';
 import Textfields from './routes/Textfields';
 import Typography from './routes/Typography';
-import Theme from './routes/Theme';
 
 const routes = [
   {
@@ -10,6 +10,11 @@ const routes = [
     exact: true,
     title: 'Buttons',
     component: Buttons
+  },
+  {
+    path: '/cards',
+    title: 'Cards',
+    component: Cards
   },
   {
     path: '/toggles',
@@ -25,11 +30,6 @@ const routes = [
     path: '/typography',
     title: 'Typography',
     component: Typography
-  },
-  {
-    path: '/theme',
-    title: 'Theme',
-    component: Theme
   }
 ];
 

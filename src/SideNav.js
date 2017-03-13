@@ -25,6 +25,13 @@ class SideNav extends Component {
         />
         <DrawerLink
           activeClassName={activeClass}
+          to="/cards"
+          icon="picture_in_picture"
+          text="Cards"
+          closeDrawer={closeDrawer}
+        />
+        <DrawerLink
+          activeClassName={activeClass}
           to="/toggles"
           icon="radio_button_checked"
           text="Toggles"
@@ -42,13 +49,6 @@ class SideNav extends Component {
           to="/typography"
           icon="text_fields"
           text="Typography"
-          closeDrawer={closeDrawer}
-        />
-        <DrawerLink
-          activeClassName={activeClass}
-          to="/theme"
-          icon="invert_colors"
-          text="Theme"
           closeDrawer={closeDrawer}
         />
       </div>

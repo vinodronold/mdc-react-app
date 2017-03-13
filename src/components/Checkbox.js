@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { MDCCheckbox } from '@material/checkbox/dist/mdc.checkbox';
 import { MDCFormField } from '@material/form-field/dist/mdc.formField';
 
-export default class Checkbox extends Component {
+class Checkbox extends Component {
   static propTypes = {
     id: PropTypes.string,
     label: PropTypes.string,
@@ -67,3 +67,5 @@ export default class Checkbox extends Component {
     );
   }
 }
+
+export default Checkbox;
