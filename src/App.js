@@ -16,9 +16,7 @@ class App extends Component {
 
   componentDidMount() {
     window.addEventListener('resize', this.onResize);
-
-    // initialize layout with the resize event
-    this.onResize();
+    this.onResize(); // initialize the layout
   }
 
   componentWillUnmount() {

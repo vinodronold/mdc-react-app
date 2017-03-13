@@ -3,20 +3,20 @@ import React, { Component, PropTypes } from 'react';
 class PermanentDrawer extends Component {
   static propTypes = {
     className: PropTypes.string,
-    children: PropTypes.node,
     toolbarSpacer: PropTypes.node,
+    children: PropTypes.node,
     hidden: PropTypes.bool
   };
 
   render() {
-    const { toolbarSpacer, children, hidden } = this.props;
-    let className = 'mdc-permanent-drawer';
+    const { className, toolbarSpacer, children, hidden } = this.props;
+    let classes = 'mdc-permanent-drawer';
 
-    if (hidden) className += ' mdc-permanent-drawer--hidden';
-    if (this.props.className) className += ` ${this.props.className}`;
+    if (hidden) classes += ' mdc-permanent-drawer--hidden';
+    if (className) classes += ` ${className}`;
 
     return (
-      <nav className={className}>
+      <nav className={classes}>
         {toolbarSpacer
           ? <div className="mdc-permanent-drawer__toolbar-spacer">
               {toolbarSpacer}
