@@ -1,0 +1,49 @@
+.demo-card {
+  max-width: 21.875rem;
+  display: inline-flex;
+  margin: 0 30px 30px 0;
+  vertical-align: top;
+}
+
+.card--with-bg {
+  height: 21.875rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.card--with-bg .mdc-card__primary,
+.card--with-bg .mdc-card__supporting-text,
+.card--with-bg .mdc-card__actions {
+  background: rgba(0, 0, 0, .4);
+}
+
+.card--with-avatar {
+  position: relative;
+}
+
+.card--with-avatar .mdc-card__title,
+.card--with-avatar .mdc-card__subtitle {
+  margin-left: 56px;
+}
+
+.mdc-card__supporting-text {
+  letter-spacing: normal;
+}
+
+.mdc-card__subtitle {
+  letter-spacing: normal;
+}
+
+.card-media--16-9 {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 12.313rem;
+}
+
+.card__avatar {
+  position: absolute;
+  background: #bdbdbd;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+}

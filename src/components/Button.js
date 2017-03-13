@@ -59,13 +59,12 @@ class Button extends Component {
     } = this.props;
 
     let classes = 'mdc-button';
-
-    if (className) classes += ` ${className}`;
     if (dense) classes += ' mdc-button--dense';
     if (raised) classes += ' mdc-button--raised';
     if (compact) classes += ' mdc-button--compact';
     if (primary) classes += ' mdc-button--primary';
     if (accent) classes += ' mdc-button--accent';
+    if (className) classes += ` ${className}`;
 
     if (to) {
       return (
