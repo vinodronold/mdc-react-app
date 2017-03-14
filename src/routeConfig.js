@@ -1,5 +1,6 @@
 import Buttons from './routes/Buttons';
 import Cards from './routes/Cards';
+import Lists from './routes/Lists';
 import Toggles from './routes/Toggles';
 import Textfields from './routes/Textfields';
 import Typography from './routes/Typography';
@@ -15,6 +16,11 @@ const routes = [
     path: '/cards',
     title: 'Cards',
     component: Cards
+  },
+  {
+    path: '/lists',
+    title: 'Lists',
+    component: Lists
   },
   {
     path: '/toggles',

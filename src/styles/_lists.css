@@ -1,0 +1,8 @@
+.mdc-list-item__end-detail {
+  width: auto;
+  height: auto;
+}
+
+.mdc-list, .mdc-list-group {
+  max-width: 600px;
+}

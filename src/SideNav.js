@@ -32,6 +32,13 @@ class SideNav extends Component {
         />
         <DrawerLink
           activeClassName={activeClass}
+          to="/lists"
+          icon="list"
+          text="Lists"
+          closeDrawer={closeDrawer}
+        />
+        <DrawerLink
+          activeClassName={activeClass}
           to="/toggles"
           icon="radio_button_checked"
           text="Toggles"
