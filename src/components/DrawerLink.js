@@ -47,10 +47,7 @@ class DrawerLink extends Component {
         onClick={this.handleClick}
         ref={n => this._link = n}
       >
-        <i
-          className="material-icons mdc-list-item__start-detail"
-          aria-hidden="true"
-        >
+        <i className="material-icons mdc-list-item__start-detail">
           {icon}
         </i>
         {label}

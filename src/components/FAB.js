@@ -28,12 +28,7 @@ class FAB extends Component {
     if (plain) classes += ' mdc-fab--plain';
 
     return (
-      <button
-        className={classes}
-        aria-label="Favorite"
-        {...otherProps}
-        ref={n => this._fab = n}
-      >
+      <button className={classes} ref={n => this._fab = n} {...otherProps}>
         <span className="mdc-fab__icon">
           {icon}
         </span>
