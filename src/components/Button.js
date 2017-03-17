@@ -1,16 +1,10 @@
 import React, { Component, PropTypes } from 'react';
-import { withRouter } from 'react-router-dom';
 import { MDCRipple } from '@material/ripple/dist/mdc.ripple';
 
 class Button extends Component {
   static propTypes = {
     className: PropTypes.string,
     type: PropTypes.string,
-    history: PropTypes.object,
-    location: PropTypes.object,
-    match: PropTypes.object,
-    staticContext: PropTypes.object,
-    to: PropTypes.string,
     href: PropTypes.string,
     label: PropTypes.string.isRequired,
     dense: PropTypes.bool,
@@ -34,21 +28,11 @@ class Button extends Component {
     this.ripple.destroy();
   }
 
-  routeTo = () => {
-    const { history, to } = this.props;
-    history.push(to);
-  };
-
   render() {
     const {
       type,
-      to,
       href,
       label,
-      history,
-      location,
-      match,
-      staticContext,
       className,
       dense,
       raised,
@@ -65,19 +49,6 @@ class Button extends Component {
     if (primary) classes += ' mdc-button--primary';
     if (accent) classes += ' mdc-button--accent';
     if (className) classes += ` ${className}`;
-
-    if (to) {
-      return (
-        <a
-          className={classes}
-          onClick={this.routeTo}
-          ref={n => this._button = n}
-          {...otherProps}
-        >
-          {label}
-        </a>
-      );
-    }
 
     if (href) {
       return (
@@ -105,4 +76,4 @@ class Button extends Component {
   }
 }
 
-export default withRouter(Button);
+export default Button;
