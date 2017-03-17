@@ -48,18 +48,32 @@ class App extends Component {
       temporaryDrawerOpen
     } = this.state;
     const permanentDrawerAdjust = hasPermanentDrawer && !permanentDrawerHidden;
-    const brand = 'MDC';
+    const brandTitle = 'MDC';
 
     return (
       <Router>
         <div>
-          <Helmet defaultTitle="MDC" titleTemplate="%s - MDC" />
+          {routes.map((route, i) => (
+            <Route
+              key={i}
+              path={route.path}
+              exact={route.exact}
+              render={() => (
+                <Helmet
+                  title={route.title}
+                  defaultTitle={brandTitle}
+                  titleTemplate={`%s - ${brandTitle}`}
+                />
+              )}
+            />
+          ))}
+
           {hasPermanentDrawer
             ? <PermanentDrawer
                 hidden={permanentDrawerHidden}
                 toolbarSpacer={
                   <div className="mdc-typography--title mdc-theme--primary">
-                    {brand}
+                    {brandTitle}
                   </div>
                 }
               >
@@ -73,7 +87,7 @@ class App extends Component {
                 close={this.toggleDrawer}
                 toolbarSpacer={
                   <div className="mdc-typography--title mdc-theme--primary">
-                    {brand}
+                    {brandTitle}
                   </div>
                 }
               >

@@ -8,9 +8,9 @@ class DrawerLink extends Component {
     history: PropTypes.object,
     to: PropTypes.string,
     icon: PropTypes.string,
-    text: PropTypes.string,
+    label: PropTypes.string,
     activeClassName: PropTypes.string,
-    closeDrawer: PropTypes.func
+    toggleDrawer: PropTypes.func
   };
 
   ripple = null;
@@ -30,15 +30,16 @@ class DrawerLink extends Component {
   }
 
   handleClick = () => {
-    const { history, to, closeDrawer } = this.props;
+    const { history, to, toggleDrawer } = this.props;
     history.push(to);
-    if (closeDrawer) {
-      closeDrawer();
+    document.body.scrollTop = 0;
+    if (toggleDrawer) {
+      toggleDrawer();
     }
   };
 
   render() {
-    const { location, to, icon, text, activeClassName } = this.props;
+    const { location, to, icon, label, activeClassName } = this.props;
     const isActive = location.pathname === to;
     return (
       <a
@@ -52,7 +53,7 @@ class DrawerLink extends Component {
         >
           {icon}
         </i>
-        {text}
+        {label}
       </a>
     );
   }

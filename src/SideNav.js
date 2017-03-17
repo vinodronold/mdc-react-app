@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import DrawerLink from './components/DrawerLink';
+import links from './links';
 
 class SideNav extends Component {
   static propTypes = {
@@ -8,56 +9,24 @@ class SideNav extends Component {
   };
 
   render() {
-    const activeClass = this.props.hasPermanentDrawer
+    const activeClassName = this.props.hasPermanentDrawer
       ? 'mdc-permanent-drawer--selected'
       : 'mdc-temporary-drawer--selected';
-    const closeDrawer = !this.props.hasPermanentDrawer
+    const toggleDrawer = !this.props.hasPermanentDrawer
       ? this.props.toggleDrawer
       : null;
     return (
       <div className="side-nav mdc-list">
-        <DrawerLink
-          activeClassName={activeClass}
-          to="/"
-          icon="add_circle"
-          text="Buttons"
-          closeDrawer={closeDrawer}
-        />
-        <DrawerLink
-          activeClassName={activeClass}
-          to="/cards"
-          icon="picture_in_picture"
-          text="Cards"
-          closeDrawer={closeDrawer}
-        />
-        <DrawerLink
-          activeClassName={activeClass}
-          to="/lists"
-          icon="list"
-          text="Lists"
-          closeDrawer={closeDrawer}
-        />
-        <DrawerLink
-          activeClassName={activeClass}
-          to="/toggles"
-          icon="radio_button_checked"
-          text="Toggles"
-          closeDrawer={closeDrawer}
-        />
-        <DrawerLink
-          activeClassName={activeClass}
-          to="/textfields"
-          icon="text_format"
-          text="Text Fields"
-          closeDrawer={closeDrawer}
-        />
-        <DrawerLink
-          activeClassName={activeClass}
-          to="/typography"
-          icon="text_fields"
-          text="Typography"
-          closeDrawer={closeDrawer}
-        />
+        {links.map((link, i) => (
+          <DrawerLink
+            key={i}
+            label={link.label}
+            to={link.path}
+            icon={link.icon}
+            activeClassName={activeClassName}
+            toggleDrawer={toggleDrawer}
+          />
+        ))}
       </div>
     );
   }
