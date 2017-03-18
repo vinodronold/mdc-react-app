@@ -1,9 +1,9 @@
-import Buttons from './routes/Buttons';
-import Cards from './routes/Cards';
-import Lists from './routes/Lists';
-import Toggles from './routes/Toggles';
-import Textfields from './routes/Textfields';
-import Typography from './routes/Typography';
+import Buttons from './pages/Buttons';
+import Cards from './pages/Cards';
+import Lists from './pages/Lists';
+import Toggles from './pages/Toggles';
+import Textfields from './pages/Textfields';
+import Typography from './pages/Typography';
 
 const routes = [
   {

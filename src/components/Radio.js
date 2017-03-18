@@ -27,24 +27,25 @@ class Radio extends Component {
   }
 
   render() {
+    const { id, label, value, onChange, checked, disabled } = this.props;
     return (
       <div className="mdc-form-field" ref={n => this._formField = n}>
         <div className="mdc-radio" ref={n => this._radio = n}>
           <input
             className="mdc-radio__native-control"
             type="radio"
-            value={this.props.value}
-            id={this.props.id}
-            onChange={this.props.onChange}
-            checked={this.props.checked}
-            disabled={this.props.disabled}
+            value={value}
+            id={id}
+            onChange={onChange}
+            checked={checked}
+            disabled={disabled}
           />
           <div className="mdc-radio__background">
             <div className="mdc-radio__outer-circle" />
             <div className="mdc-radio__inner-circle" />
           </div>
         </div>
-        <label htmlFor={this.props.id}>{this.props.label}</label>
+        <label htmlFor={id}>{label}</label>
       </div>
     );
   }

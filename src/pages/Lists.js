@@ -49,7 +49,6 @@ const Lists = () => {
         </li>
       </ul>
 
-      <h2 className="mdc-typography--headline">Contacts</h2>
       <ul className="mdc-list mdc-list--avatar-list">
         <li className="mdc-list-item">
           <div
