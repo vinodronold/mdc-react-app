@@ -35,6 +35,36 @@ class Toggles extends Component {
     return (
       <div>
         <h1 className="mdc-typography--headline mdc-theme--primary">
+          Icon Toggle
+        </h1>
+        <div className="toggles-row">
+          <IconToggle
+            icon="favorite_border"
+            onIcon="favorite"
+            on={this.state.favorited.get('default')}
+            onClick={() => this.toggleFavorited('default')}
+          />
+          <label className="icon-toggle-label">
+            {this.state.favorited.get('default') ? 'Favorited' : 'Favorite'}
+          </label>
+          <IconToggle
+            icon="favorite_border"
+            onIcon="favorite"
+            on={this.state.favorited.get('primary')}
+            onClick={() => this.toggleFavorited('primary')}
+            primary
+          />
+          <IconToggle
+            icon="favorite_border"
+            onIcon="favorite"
+            on={this.state.favorited.get('accent')}
+            onClick={() => this.toggleFavorited('accent')}
+            accent
+          />
+          <IconToggle icon="favorite_border" onIcon="favorite" disabled />
+          <label className="icon-toggle-label">Disabled</label>
+        </div>
+        <h1 className="mdc-typography--headline mdc-theme--primary">
           Checkbox
         </h1>
         <div className="toggles-row">
@@ -83,36 +113,7 @@ class Toggles extends Component {
           />
           <Switch label="Disabled" disabled />
         </div>
-        <h1 className="mdc-typography--headline mdc-theme--primary">
-          Icon Toggle
-        </h1>
-        <div className="toggles-row">
-          <IconToggle
-            icon="favorite_border"
-            onIcon="favorite"
-            on={this.state.favorited.get('default')}
-            onClick={() => this.toggleFavorited('default')}
-          />
-          <label className="icon-toggle-label">
-            {this.state.favorited.get('default') ? 'Favorited' : 'Favorite'}
-          </label>
-          <IconToggle
-            icon="favorite_border"
-            onIcon="favorite"
-            on={this.state.favorited.get('primary')}
-            onClick={() => this.toggleFavorited('primary')}
-            primary
-          />
-          <IconToggle
-            icon="favorite_border"
-            onIcon="favorite"
-            on={this.state.favorited.get('accent')}
-            onClick={() => this.toggleFavorited('accent')}
-            accent
-          />
-          <IconToggle icon="favorite_border" onIcon="favorite" disabled />
-          <label className="icon-toggle-label">Disabled</label>
-        </div>
+
       </div>
     );
   }

@@ -6,7 +6,7 @@
   height: 100% !important;
 }
 
-.mdc-icon-toggle:focus::before {
+.mdc-icon-toggle:hover::before {
   opacity: 0 !important;
 }
 
